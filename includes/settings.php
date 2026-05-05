@@ -7,10 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function fx_doc_code( string $code ): string {
-    return '<pre class="fx-doc-code"><code>' . esc_html( trim( $code, "\n" ) ) . '</code></pre>';
-}
-
 function fx_shortcodes_render_docs_page(): void {
     if ( ! current_user_can( 'manage_options' ) ) {
         return;
@@ -110,13 +106,13 @@ function fx_shortcodes_render_docs_page(): void {
         <h2 id="fx-cover">Cover</h2>
         <p>Full-bleed hero with optional background image, color overlay, and parallax.</p>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="cover" height="100vh" width="full" background="/wp-content/uploads/hero.jpg" overlay="#000000" overlay-opacity="0.4" text="#ffffff" align="center" vertical-align="center"]
 <h1>Welcome</h1>
 <p>A short tagline goes here.</p>
 [element type="button" url="/get-started" style="fill" size="large"]Get started[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
         <p>Cover-specific attributes:</p>
         <table>
@@ -136,35 +132,35 @@ function fx_shortcodes_render_docs_page(): void {
 
         <h3>Plain</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" background-color="#f6f6f6" padding="3rem 1rem" width="full"]
 <h2>About us</h2>
 <p>Long-form text here.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Flex layout</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" layout="flex" justify="space-between" vertical-align="center" gap="2rem" padding="2rem"]
 [element type="card" title="One"]Lorem ipsum.[/element]
 [element type="card" title="Two"]Dolor sit amet.[/element]
 [element type="card" title="Three"]Consectetur.[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Grid layout (auto-fit)</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" layout="grid" gap="1.5rem" padding="2rem"]
 [element type="card" title="A"]…[/element]
 [element type="card" title="B"]…[/element]
 [element type="card" title="C"]…[/element]
 [element type="card" title="D"]…[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Group-specific attributes:</p>
@@ -181,7 +177,7 @@ function fx_shortcodes_render_docs_page(): void {
 
         <h3>Two equal columns</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="columns" columns="2" gap="2rem"]
   [element type="column"]
   <h3>Left</h3>
@@ -192,23 +188,23 @@ function fx_shortcodes_render_docs_page(): void {
   <p>Other text.</p>
   [/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Three columns, no stack on mobile</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="columns" columns="3" gap="1rem" stack="0"]
   [element type="column"]One[/element]
   [element type="column"]Two[/element]
   [element type="column"]Three[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Asymmetric columns (1/3 + 2/3)</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="columns" columns="2" gap="2rem"]
   [element type="column" span="33%"]
   <p>Sidebar.</p>
@@ -217,7 +213,7 @@ function fx_shortcodes_render_docs_page(): void {
   <p>Main content area.</p>
   [/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Columns-specific attributes:</p>
@@ -235,31 +231,31 @@ function fx_shortcodes_render_docs_page(): void {
 
         <h3>Closed by default</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="details" summary="What\'s your refund policy?"]
 <p>30 days, no questions asked.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Open by default</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="accordion" summary="Important notice" open="1"]
 <p>This panel is expanded on page load.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Stack of accordions</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" padding="1rem"]
 [element type="details" summary="Question 1"]Answer 1.[/element]
 [element type="details" summary="Question 2"]Answer 2.[/element]
 [element type="details" summary="Question 3"]Answer 3.[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Use a default group (not <code>layout="flex"</code>) for a vertical list — flex would put them in a row.</p>
@@ -278,34 +274,34 @@ function fx_shortcodes_render_docs_page(): void {
 
         <h3>Media on the left (default)</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="media-text" media="/wp-content/uploads/photo.jpg" media-alt="A photo" media-width="40%" gap="2rem"]
 <h2>Heading</h2>
 <p>Body text alongside the image.</p>
 [element type="button" url="/learn-more"]Learn more[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Media on the right, stacks on mobile</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="media-text" media="/wp-content/uploads/photo.jpg" media-position="right" media-width="50%" stack="1" vertical-align="center"]
 <h2>Right-side image</h2>
 <p>Stacks vertically below 781px.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Crop image to fill</h3>
         <p>The image stretches to match the height of the text column (like WordPress' <em>Crop image to fill</em> toggle on the Media &amp; Text block). The image is sized with <code>object-fit: cover</code>, so any aspect-ratio mismatch is cropped, not letter-boxed.</p>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="media-text" media="/wp-content/uploads/photo.jpg" media-width="40%" crop="1"]
 <h2>Cropped image</h2>
 <p>The photo on the left now matches the height of this text block, regardless of the image\'s natural aspect ratio.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Media-text-specific attributes:</p>
@@ -326,38 +322,38 @@ function fx_shortcodes_render_docs_page(): void {
         <p>Every button has a <strong>background color</strong> and a <strong>text color</strong>. On hover both states darken automatically using <code>color-mix(in oklch, ...)</code> — perceptually-uniform darkening that works on any color you pass in, no need to pre-compute a hover variant.</p>
 
         <h3>Solid (default)</h3>
-        <?php echo fx_doc_code( '[element type="button" url="/signup"]Sign up[/element]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="button" url="/signup"]Sign up[/element]' ); ?></code></pre>
         <p>The default palette is <code>#2271b1</code> background with white text. Hover darkens the background by 15% in OKLCH space.</p>
 
         <h3>Outline, large</h3>
-        <?php echo fx_doc_code( '[element type="button" url="/contact" style="outline" size="large"]Contact us[/element]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="button" url="/contact" style="outline" size="large"]Contact us[/element]' ); ?></code></pre>
         <p>Outline buttons borrow the <code>background-color</code> attribute as their accent. On hover they fill in with the darkened accent and switch to the text color.</p>
 
         <h3>External link, opens in new tab (auto adds <code>rel="noopener noreferrer"</code>)</h3>
-        <?php echo fx_doc_code( '[element type="button" url="https://example.com" target="_blank"]Visit site[/element]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="button" url="https://example.com" target="_blank"]Visit site[/element]' ); ?></code></pre>
 
         <h3>Custom colors — hover darkens automatically</h3>
-        <?php echo fx_doc_code( '[element type="button" url="/buy" background-color="#222" color="#ffd400" border-radius="999px" padding="0.8rem 2rem"]Buy now[/element]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="button" url="/buy" background-color="#222" color="#ffd400" border-radius="999px" padding="0.8rem 2rem"]Buy now[/element]' ); ?></code></pre>
         <p>You don't specify a hover color. The CSS computes it from the <code>background-color</code> value you pass: <code>color-mix(in oklch, #222, black 15%)</code>.</p>
 
         <h3>Brand-accent button using a CSS color name</h3>
-        <?php echo fx_doc_code( '[element type="button" url="/launch" background-color="tomato" color="white"]Launch[/element]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="button" url="/launch" background-color="tomato" color="white"]Launch[/element]' ); ?></code></pre>
 
         <h3>Button row inside a flex group</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" layout="flex" justify="center" gap="1rem"]
 [element type="button" url="/primary" style="fill"]Primary[/element]
 [element type="button" url="/secondary" style="outline"]Secondary[/element]
 [element type="button" url="/tertiary" style="text"]Tertiary[/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
         <p>All three variants share the same color logic — fill, outline, and text all darken on hover via <code>color-mix</code>.</p>
 
         <h3>Tweaking the hover strength</h3>
         <p>The hover darkening percentage is exposed as a CSS variable on <code>.fx-button</code> (<code>--fx-button-darken</code>, default <code>15%</code>). To override globally, in your theme CSS:</p>
-        <?php echo fx_doc_code( '.fx-button { --fx-button-darken: 25%; }   /* stronger hover darkening */' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '.fx-button { --fx-button-darken: 25%; }   /* stronger hover darkening */' ); ?></code></pre>
         <p>Or per-button by adding a class via the <code>class</code> attribute and targeting it.</p>
 
         <p>Button-specific attributes:</p>
@@ -380,25 +376,25 @@ function fx_shortcodes_render_docs_page(): void {
 
         <h3>Simple</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="card" image="/wp-content/uploads/photo.jpg" title="My Card"]
 <p>Card body text.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Whole card linked</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="card" image="/wp-content/uploads/photo.jpg" title="Read the article" url="/article-slug"]
 <p>Click anywhere on the card to read.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h3>Card grid</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="columns" columns="3" gap="1.5rem"]
   [element type="column"]
     [element type="card" image="/img/a.jpg" title="Alpha" url="/a"]Short summary.[/element]
@@ -410,7 +406,7 @@ function fx_shortcodes_render_docs_page(): void {
     [element type="card" image="/img/c.jpg" title="Gamma" url="/c"]Short summary.[/element]
   [/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Card-specific attributes:</p>
@@ -429,20 +425,20 @@ function fx_shortcodes_render_docs_page(): void {
         <p>Invisible vertical (or horizontal) gap. Self-closing form is recommended.</p>
 
         <h3>Vertical (default)</h3>
-        <?php echo fx_doc_code( '[element type="spacer" height="3rem" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="spacer" height="3rem" /]' ); ?></code></pre>
 
         <h3>Horizontal (inline)</h3>
-        <?php echo fx_doc_code( 'Some text. [element type="spacer" direction="horizontal" width="2rem" /] More text.' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( 'Some text. [element type="spacer" direction="horizontal" width="2rem" /] More text.' ); ?></code></pre>
 
         <h3>Inside a flex layout</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="group" layout="flex" vertical-align="center"]
 <span>Left</span>
 [element type="spacer" direction="horizontal" width="auto" /]
 <span>Right</span>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Spacer-specific attributes:</p>
@@ -459,32 +455,32 @@ function fx_shortcodes_render_docs_page(): void {
         <p>Visible thematic break (<code>&lt;hr&gt;</code>) with style variants. <code>[element type="hr" /]</code> matches <code>[element type="separator" /]</code> (same renderer).</p>
 
         <h3>Default short rule</h3>
-        <?php echo fx_doc_code( '[element type="separator" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="separator" /]' ); ?></code></pre>
 
         <h3>Wide (full-container) rule</h3>
-        <?php echo fx_doc_code( '[element type="separator" style="wide" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="separator" style="wide" /]' ); ?></code></pre>
 
         <h3>Dotted</h3>
-        <?php echo fx_doc_code( '[element type="hr" style="dots" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="hr" style="dots" /]' ); ?></code></pre>
 
         <h3>Dashed</h3>
-        <?php echo fx_doc_code( '[element type="separator" style="dashed" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="separator" style="dashed" /]' ); ?></code></pre>
 
         <h3>Double line</h3>
-        <?php echo fx_doc_code( '[element type="separator" style="double" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="separator" style="double" /]' ); ?></code></pre>
 
         <h3>Colored, custom width, left-aligned</h3>
-        <?php echo fx_doc_code( '[element type="separator" color="#c0392b" width="120px" align="left" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="separator" color="#c0392b" width="120px" align="left" /]' ); ?></code></pre>
 
         <h3>Inside a card</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="card" title="Section"]
 <p>Intro paragraph.</p>
 [element type="separator" style="dots" /]
 <p>Continued content.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Separator-specific attributes:</p>
@@ -503,30 +499,30 @@ function fx_shortcodes_render_docs_page(): void {
         <p><code>[element type="colored-line" /]</code> matches <code>[element type="line" /]</code> (same renderer).</p>
 
         <h3>Striped (default), 256×10px, centred</h3>
-        <?php echo fx_doc_code( '[element type="line" style="striped" height="10px" width="256px" padding="32px 0" color="#95afc0" align="center" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="line" style="striped" height="10px" width="256px" padding="32px 0" color="#95afc0" align="center" /]' ); ?></code></pre>
 
         <h3>Dotted, full width</h3>
-        <?php echo fx_doc_code( '[element type="line" style="dotted" height="6px" width="100%" color="#222" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="line" style="dotted" height="6px" width="100%" color="#222" /]' ); ?></code></pre>
 
         <h3>Shaded fade-in/fade-out</h3>
-        <?php echo fx_doc_code( '[element type="line" style="shade" height="2px" width="60%" color="#0a0a0a" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="line" style="shade" height="2px" width="60%" color="#0a0a0a" /]' ); ?></code></pre>
 
         <h3>Solid bar (override <code>background-color</code>)</h3>
-        <?php echo fx_doc_code( '[element type="line" style="striped" background-color="#0a0a0a" color="#0a0a0a" height="4px" width="120px" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="line" style="striped" background-color="#0a0a0a" color="#0a0a0a" height="4px" width="120px" /]' ); ?></code></pre>
         <p>When you pass a non-transparent <code>background-color</code> you get a solid filled bar in addition to whatever the variant paints over it.</p>
 
         <h3>Left-aligned with extra vertical padding</h3>
-        <?php echo fx_doc_code( '[element type="line" style="dotted" align="left" padding="48px 0" height="8px" width="200px" color="#c0392b" /]' ); ?>
+        <pre class="fx-doc-code"><code><?php echo esc_html( '[element type="line" style="dotted" align="left" padding="48px 0" height="8px" width="200px" color="#c0392b" /]' ); ?></code></pre>
 
         <h3>Inside a card or section divider</h3>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="card" title="Specifications"]
 <p>Top section.</p>
 [element type="line" style="shade" height="1px" color="#999" /]
 <p>Bottom section.</p>
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <p>Line-specific attributes:</p>
@@ -545,7 +541,7 @@ function fx_shortcodes_render_docs_page(): void {
         <h2 id="fx-nesting">Nesting</h2>
         <p>Different <code>type</code> values nest arbitrarily (<code>[element type="group"]</code> containing <code>[element type="columns"]</code> …). Because parsing is innermost-first, <strong><code>[element]</code> inside <code>[element]</code></strong> is supported (for example a column inside columns inside a cover).</p>
         <?php
-        echo fx_doc_code(
+        echo '<pre class="fx-doc-code"><code>' . esc_html( trim(
             '[element type="cover" height="80vh" width="full" background="/img/hero.jpg" overlay="#000" overlay-opacity="0.5" text="#fff" align="center" vertical-align="center"]
   [element type="group" max-width="900px"]
   <h1>Big idea</h1>
@@ -562,7 +558,7 @@ function fx_shortcodes_render_docs_page(): void {
     [element type="separator" style="dots" /]
   [/element]
 [/element]'
-        );
+        , "\n" ) ) . '</code></pre>';
         ?>
 
         <h2 id="fx-paired-void">Paired vs void tags</h2>
