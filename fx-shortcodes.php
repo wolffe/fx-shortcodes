@@ -7,7 +7,7 @@
  * Author URI: https://getbutterfly.com/
  * Version: 1.0.0
  * Requires at least: 6.2
- * Requires PHP: 8.5
+ * Requires PHP: 8.1
  * Requires CP: 2.5
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -87,6 +87,12 @@ function fx_shortcodes_enqueue(): void {
 add_filter( 'the_content', 'fx_shortcodes_parse', 8 );
 add_filter( 'widget_text', 'fx_shortcodes_parse', 8 );
 add_filter( 'comment_text', 'fx_shortcodes_parse', 8 );
+
+add_filter( 'plugin_action_links_fx-shortcodes/fx-shortcodes.php', 'fx_shortcodes_action_links' );
+function fx_shortcodes_action_links( array $links ): array {
+    $links[] = '<a href="https://getbutterfly.com/classicpress-plugins/fx-shortcodes/" target="_blank" rel="noopener noreferrer">Help</a>';
+    return $links;
+}
 
 add_action( 'admin_menu', 'fx_shortcodes_admin_menu' );
 function fx_shortcodes_admin_menu(): void {
