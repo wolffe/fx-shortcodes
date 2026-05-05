@@ -51,11 +51,11 @@ All types accept a shared set of common attributes — `width` (`full` / `wide` 
 2. Activate it from the Plugins screen.
 3. Open **Settings → FX Shortcodes** for the full reference with code samples for every shortcode.
 
+## Demo
+
+https://studio.getbutterfly.com/fx-shortcodes/
+
 ## Requirements
 
 - ClassicPress 2.0+
-- PHP 8.5+
-
-## License
-
-GPL-2.0-or-later.
+- PHP 8.1+
