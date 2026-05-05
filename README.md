@@ -2,6 +2,9 @@
 
 Block-style page layouts for ClassicPress, delivered as shortcodes.
 
+- **Plugin page:** https://getbutterfly.com/classicpress-plugins/fx-shortcodes/
+- **Demo:** https://studio.getbutterfly.com/fx-shortcodes/
+
 ## Why this exists
 
 ClassicPress dropped the Gutenberg block editor in favour of the Classic editor. That's a deliberate choice — but it leaves a gap: the layout primitives that came with blocks (cover, columns, media + text, buttons, accordions, etc.) disappear with them. Themes still know how to style `alignfull` / `alignwide`, but there's no easy way to author those layouts in a Classic post.
@@ -50,10 +53,6 @@ All types accept a shared set of common attributes — `width` (`full` / `wide` 
 1. Drop the `fx-shortcodes` folder into `wp-content/plugins/`.
 2. Activate it from the Plugins screen.
 3. Open **Settings → FX Shortcodes** for the full reference with code samples for every shortcode.
-
-## Demo
-
-https://studio.getbutterfly.com/fx-shortcodes/
 
 ## Requirements
 
