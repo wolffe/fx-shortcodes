@@ -24,14 +24,12 @@ jobs:
                     <file>.</file>
                     ' phpcs.xml
                   sed -i '/MY_DOMAIN/ s//fx-shortcodes/' phpcs.xml
-                  sed -i 's|<\/ruleset>|    <config name="testVersion" value="8.0-"/>\n</ruleset>|' phpcs.xml
                   cp phpcs.xml phpcs.xml.dist
             - name: CPCS checks
               uses: 10up/wpcs-action@v2.1.0
               with:
                   use_local_config: "true"
                   enable_warnings: "true"
-                  php_version: "8.1"
                   extra_args: "--report-json=./phpcs.json"
             - name: Set up Node.js for summary
               if: always()
