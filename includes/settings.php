@@ -252,7 +252,7 @@ function fx_shortcodes_render_docs_page(): void {
                         <tr><td><code>media</code></td><td>image URL</td></tr>
                         <tr><td><code>media-alt</code></td><td>alt text</td></tr>
                         <tr><td><code>media-position</code></td><td><code>left</code> (default) or <code>right</code></td></tr>
-                        <tr><td><code>media-width</code></td><td>CSS length, default <code>50%</code></td></tr>
+                        <tr><td><code>media-width</code></td><td>CSS length; omit or <code>50%</code> for equal columns (<code>1fr</code> / <code>1fr</code>); e.g. <code>40%</code> for a narrower media column</td></tr>
                         <tr><td><code>stack</code></td><td><code>1</code> / <code>0</code> — stack at narrow widths (default <code>1</code>)</td></tr>
                         <tr><td><code>crop</code></td><td><code>1</code> / <code>0</code> — crop image to fill text column height (<code>object-fit: cover</code>); default <code>0</code></td></tr>
                     </tbody>

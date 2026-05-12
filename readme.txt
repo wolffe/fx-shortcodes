@@ -1,12 +1,11 @@
 === FX Shortcodes ===
 Contributors: butterflymedia
 Tags: classicpress, shortcodes, blocks, layout, gutenberg
-Requires at least: 6.2
+Requires at least: 2.5
 Requires PHP: 8.5
-Requires CP: 2.5
-Tested up to: 6.9.1
+Tested up to: 2.7.0
 Stable tag: 1.0.0
-License: GPLv3 or later
+License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Block-style page layouts for ClassicPress, delivered as shortcodes. Replaces Gutenberg layout blocks with one nestable `[element]` tag.

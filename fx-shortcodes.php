@@ -3,15 +3,18 @@
  * Plugin Name: FX Shortcodes
  * Plugin URI: https://getbutterfly.com/classicpress-plugins/fx-shortcodes/
  * Description: Block-style layout shortcodes (cover, group, columns, details, media-text, button, card) for ClassicPress. One shortcode, many types, fully nestable.
+ * Version: 1.0.0
+ * Requires PHP: 8.5
+ * Requires CP: 2.5
  * Author: Ciprian Popescu
  * Author URI: https://getbutterfly.com/
- * Version: 1.0.0
- * Requires at least: 6.2
- * Requires PHP: 8.1
- * Requires CP: 2.5
- * License: GPLv3 or later
+ * License: GNU General Public License v3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: fx-shortcodes
+ * Domain Path: /languages/
+ *
+ * @author Ciprian Popescu <ciprian@getbutterfly.com>
+ * @copyright Copyright (c) 2026, getButterfly
  *
  * FX Shortcodes
  * Copyright (C) 2026 Ciprian Popescu (getbutterfly@gmail.com)
@@ -54,6 +57,7 @@ require_once $fx_includes_dir . 'card.php';
 require_once $fx_includes_dir . 'spacer.php';
 require_once $fx_includes_dir . 'separator.php';
 require_once $fx_includes_dir . 'line.php';
+require_once $fx_includes_dir . 'sticky.php';
 require_once $fx_includes_dir . 'settings.php';
 
 unset( $fx_includes_dir );
@@ -207,7 +211,7 @@ function fx_render_element( array $atts, string $content ): string {
         'media'            => '',
         'media-alt'        => '',
         'media-position'   => 'left', // left | right
-        'media-width'      => '50%',
+        'media-width'      => '', // empty or 50% → equal columns (1fr / 1fr) in renderer
         'crop'             => '0',    // 1 = crop image to fill text column height
 
     // button
@@ -228,6 +232,10 @@ function fx_render_element( array $atts, string $content ): string {
 
         // spacer
         'direction'        => 'vertical', // vertical | horizontal
+
+        // sticky
+        'rotate'           => '',     // e.g. "-2deg"
+        'aspect-ratio'     => '',     // e.g. "1/1"
     ];
 
     $a    = array_merge( $defaults, array_change_key_case( $atts, CASE_LOWER ) );
@@ -245,6 +253,7 @@ function fx_render_element( array $atts, string $content ): string {
         'spacer'                  => fx_render_spacer( $a ),
         'separator', 'hr'         => fx_render_separator( $a ),
         'line', 'colored-line'    => fx_render_line( $a ),
+        'sticky', 'note'          => fx_render_sticky( $a, $content ),
         default                   => fx_render_group( $a, $content ),
     };
 }

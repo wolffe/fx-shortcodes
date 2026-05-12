@@ -23,10 +23,18 @@ function fx_render_media_text( array $a, string $content ): string {
         ]
     );
 
+    $mw_key = strtolower( str_replace( ' ', '', trim( (string) $a['media-width'] ) ) );
+    $tracks = ( $mw_key === '' || $mw_key === '50%' )
+        ? [ '--fx-media-width' => '1fr', '--fx-text-width' => '1fr' ]
+        : [
+            '--fx-media-width' => trim( (string) $a['media-width'] ),
+            '--fx-text-width'  => '1fr',
+        ];
+
     $style = fx_style(
         array_merge(
             fx_common_styles( $a ),
-            [ '--fx-media-width' => $a['media-width'] ]
+            $tracks
         )
     );
 
