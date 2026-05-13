@@ -2,9 +2,9 @@
 Contributors: butterflymedia
 Tags: classicpress, shortcodes, blocks, layout, gutenberg
 Requires at least: 2.5
-Requires PHP: 8.5
+Requires PHP: 8.0
 Tested up to: 2.7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,6 +33,7 @@ Because the plugin parses `[element]` itself (innermost-first, before WordPress'
 * `media-text` (alias `mediatext`) — image on one side, text on the other; supports "crop image to fill"
 * `button` — `<a>` or `<button>` with fill / outline / text variants and OKLCH hover
 * `card` — image + title + body, optionally a whole-card link
+* `sticky` (alias `note`) — post-it style panel (rotation, aspect ratio, shadow)
 * `spacer` — invisible vertical or horizontal gap (void)
 * `separator` (alias `hr`) — thematic break with style variants (void)
 * `line` (alias `colored-line`) — decorative striped / dotted / shaded line (void)
@@ -46,6 +47,7 @@ The full reference, with code samples for every shortcode, lives in the admin un
 1. Upload the `fx-shortcodes` folder to `/wp-content/plugins/`.
 2. Activate the plugin from the Plugins screen.
 3. Open **Settings → FX Shortcodes** for the full reference and code samples.
+4. **docs/SHORTCODE-DEMOS.txt** is an HTML fragment: rendered samples (real shortcodes) plus textarea blocks with brackets as `&#91;`/`&#93;` so they copy cleanly without executing inside the field. If you edit a textarea sample, decode those entities back to `[` `]` inside the fenced `<!-- fx-demo-live-* -->` block above it so previews stay aligned.
 
 == Frequently Asked Questions ==
 
@@ -62,6 +64,13 @@ Yes. The plugin uses its own innermost-first parser, so an `[element]` inside an
 It works on WordPress too — the codebase has no ClassicPress-only dependencies — but the target audience is ClassicPress users who use the Classic editor and want layout primitives without blocks.
 
 == Changelog ==
+
+= 1.0.1 =
+* Require PHP 8.0+ (was 8.5).
+* Plugins screen Help link opens documentation under Settings → FX Shortcodes.
+* Documentation screen styling refresh (table of contents, header actions, tables).
+* Document `sticky` / `note` in the reference UI.
+* **docs/SHORTCODE-DEMOS.txt** — copy-paste HTML fragment for ClassicPress pages with live previews and entity-encoded textarea snippets.
 
 = 1.0.0 =
 * Initial release.

@@ -2,9 +2,9 @@
 /**
  * Plugin Name: FX Shortcodes
  * Plugin URI: https://getbutterfly.com/classicpress-plugins/fx-shortcodes/
- * Description: Block-style layout shortcodes (cover, group, columns, details, media-text, button, card) for ClassicPress. One shortcode, many types, fully nestable.
- * Version: 1.0.0
- * Requires PHP: 8.5
+ * Description: Block-style layout shortcodes (cover, group, columns, details, media-text, button, card, sticky, and more) for ClassicPress. One shortcode, many types, fully nestable.
+ * Version: 1.0.1
+ * Requires PHP: 8.0
  * Requires CP: 2.5
  * Author: Ciprian Popescu
  * Author URI: https://getbutterfly.com/
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-const FX_SHORTCODES_VERSION = '1.0.0';
+const FX_SHORTCODES_VERSION = '1.0.1';
 
 /* -------------------------------------------------------------------------
  * Includes
@@ -92,10 +92,28 @@ add_filter( 'the_content', 'fx_shortcodes_parse', 8 );
 add_filter( 'widget_text', 'fx_shortcodes_parse', 8 );
 add_filter( 'comment_text', 'fx_shortcodes_parse', 8 );
 
-add_filter( 'plugin_action_links_fx-shortcodes/fx-shortcodes.php', 'fx_shortcodes_action_links' );
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'fx_shortcodes_action_links' );
 function fx_shortcodes_action_links( array $links ): array {
-    $links[] = '<a href="https://getbutterfly.com/classicpress-plugins/fx-shortcodes/" target="_blank" rel="noopener noreferrer">Help</a>';
+    $docs_url = admin_url( 'options-general.php?page=fx-shortcodes' );
+    $links[]  = sprintf(
+        '<a href="%s">%s</a>',
+        esc_url( $docs_url ),
+        esc_html__( 'Help', 'fx-shortcodes' )
+    );
     return $links;
+}
+
+add_action( 'admin_enqueue_scripts', 'fx_shortcodes_admin_enqueue' );
+function fx_shortcodes_admin_enqueue( string $hook_suffix ): void {
+    if ( $hook_suffix !== 'settings_page_fx-shortcodes' ) {
+        return;
+    }
+    wp_enqueue_style(
+        'fx-shortcodes-admin',
+        plugins_url( 'fx-shortcodes-admin.css', __FILE__ ),
+        [],
+        FX_SHORTCODES_VERSION
+    );
 }
 
 add_action( 'admin_menu', 'fx_shortcodes_admin_menu' );

@@ -1,0 +1,353 @@
+/**
+ * FX Shortcodes — Settings ▸ FX Shortcodes (documentation screen).
+ */
+
+.fx-doc.fx-doc {
+	max-width: none;
+	margin-right: 12px;
+}
+
+.fx-doc-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px 24px;
+	padding: 20px 22px 22px;
+	margin: 0 0 20px -12px;
+	margin-right: 0;
+	background: linear-gradient(135deg, #f0f6fc 0%, #fff 55%, #fafafa 100%);
+	border: 1px solid #c3c4c7;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.fx-doc-header-main {
+	flex: 1 1 280px;
+	min-width: 0;
+}
+
+.fx-doc-eyebrow {
+	display: inline-block;
+	margin: 0 0 6px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #646970;
+}
+
+.fx-doc-title {
+	margin: 0 0 8px;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1.25;
+	color: #1d2327;
+}
+
+.fx-doc-lede {
+	margin: 0;
+	max-width: 52rem;
+	font-size: 14px;
+	line-height: 1.65;
+	color: #50575e;
+}
+
+.fx-doc-header-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+.fx-doc-header-actions .button.button-primary {
+	box-shadow: none;
+}
+
+.fx-doc-layout {
+	display: grid;
+	grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+	gap: 28px 40px;
+	align-items: start;
+	max-width: 1180px;
+}
+
+@media screen and (max-width: 960px) {
+
+	.fx-doc-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.fx-doc-toc {
+		position: static;
+		top: auto;
+	}
+}
+
+.fx-doc-toc {
+	position: sticky;
+	top: 48px;
+	padding: 14px 16px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	box-sizing: border-box;
+	max-height: calc(100vh - 120px);
+	overflow: auto;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.fx-doc-toc-title {
+	margin: 0 0 10px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #646970;
+}
+
+.fx-doc-toc ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.fx-doc-toc li {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.fx-doc-toc li:last-child {
+	border-bottom: none;
+}
+
+.fx-doc-toc a {
+	display: block;
+	padding: 8px 4px;
+	font-size: 13px;
+	line-height: 1.35;
+	text-decoration: none;
+	color: #2271b1;
+	border-radius: 4px;
+}
+
+.fx-doc-toc a:hover,
+.fx-doc-toc a:focus {
+	color: #135e96;
+	background: #f0f6fc;
+	outline: none;
+}
+
+.fx-doc-content {
+	min-width: 0;
+	font-size: 14px;
+	line-height: 1.65;
+	color: #2c3338;
+}
+
+.fx-doc-content > .fx-intro:first-child {
+	margin-top: 0;
+}
+
+.fx-doc p,
+.fx-doc li {
+	font-size: 14px;
+	line-height: 1.65;
+}
+
+.fx-doc-intro {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 16px 18px;
+	margin: 0 0 22px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.fx-doc-intro p {
+	margin: 0 0 10px;
+}
+
+.fx-doc-intro p:last-child {
+	margin-bottom: 0;
+}
+
+.fx-doc table.fx-doc-table {
+	border-collapse: collapse;
+	margin: 1em 0;
+	width: 100%;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	border: 1px solid #dcdcde;
+}
+
+.fx-doc table.fx-doc-table th,
+.fx-doc table.fx-doc-table td {
+	border: 1px solid #e8e8ea;
+	padding: 10px 14px;
+	text-align: left;
+	vertical-align: top;
+	font-size: 13px;
+}
+
+.fx-doc table.fx-doc-table tbody tr:nth-child(even) {
+	background: #fafafa;
+}
+
+.fx-doc table.fx-doc-table thead th {
+	background: linear-gradient(180deg, #f6f7f7 0%, #f0f0f1 100%);
+	font-weight: 600;
+	border-bottom-color: #dcdcde;
+}
+
+.fx-doc code {
+	background: #f0f0f1;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-size: 13px;
+	word-break: break-word;
+}
+
+.fx-doc textarea.fx-doc-code {
+	display: block;
+	background: #1d2327;
+	color: #e8eaed;
+	padding: 14px 16px;
+	border-radius: 6px;
+	font-size: 13px;
+	line-height: 1.55;
+	font-family: Consolas, Monaco, monospace;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #3c434a;
+	resize: vertical;
+	min-height: 4rem;
+	tab-size: 4;
+	color-scheme: dark;
+	margin-top: 10px;
+	margin-bottom: 0;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.fx-doc .fx-code-label {
+	display: block;
+	margin-top: 14px;
+	margin-bottom: 4px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #646970;
+}
+
+.fx-doc .fx-code-label:first-child {
+	margin-top: 0;
+}
+
+.fx-doc blockquote.fx-callout {
+	border-left: 4px solid #72aee6;
+	margin: 1em 0;
+	padding: 12px 16px;
+	background: #f0f6fc;
+	border-radius: 0 6px 6px 0;
+	color: #2c3338;
+}
+
+.fx-doc details.fx-section {
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+	overflow: hidden;
+}
+
+.fx-doc details.fx-section + details.fx-section {
+	margin-top: 0;
+}
+
+.fx-doc details.fx-section > summary {
+	font-size: 14px;
+	font-weight: 600;
+	padding: 14px 18px;
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	user-select: none;
+	color: #1d2327;
+	background: #fafafa;
+	border-bottom: 1px solid transparent;
+	transition: background 0.15s ease;
+}
+
+.fx-doc details.fx-section > summary::-webkit-details-marker {
+	display: none;
+}
+
+.fx-doc details.fx-section > summary::after {
+	content: "+";
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 1;
+	color: #787c82;
+	min-width: 1.25em;
+	text-align: center;
+}
+
+.fx-doc details.fx-section[open] > summary {
+	border-bottom-color: #dcdcde;
+	background: #fff;
+}
+
+.fx-doc details.fx-section[open] > summary::after {
+	content: "\2212"; /* − */
+}
+
+.fx-doc details.fx-section > summary:hover {
+	background: #f0f6fc;
+}
+
+.fx-doc details.fx-section[open] > summary:hover {
+	background: #fff;
+}
+
+.fx-doc .fx-section-body {
+	padding: 18px 20px 22px;
+}
+
+.fx-doc .fx-section-body h3 {
+	margin: 1.5em 0 0.45em;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #50575e;
+}
+
+.fx-doc .fx-section-body h3:first-child {
+	margin-top: 0;
+}
+
+.fx-doc .fx-section-body > p:first-child {
+	margin-top: 0;
+}
+
+.fx-doc h2.fx-doc-heading {
+	font-size: 15px;
+	font-weight: 600;
+	margin: 2rem 0 0.65rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid #dcdcde;
+	color: #1d2327;
+}
+
+.fx-doc h2.fx-doc-heading:first-of-type {
+	margin-top: 0.5rem;
+	padding-top: 0;
+	border-top: none;
+}

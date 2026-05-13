@@ -14,42 +14,49 @@ function fx_shortcodes_render_docs_page(): void {
 
     ?>
     <div class="wrap fx-doc">
-        <h1>FX Shortcodes <a href="https://getbutterfly.com/classicpress-plugins/fx-shortcodes/" target="_blank" rel="noopener noreferrer" class="page-title-action">Plugin page</a></h1>
+        <header class="fx-doc-header">
+            <div class="fx-doc-header-main">
+                <p class="fx-doc-eyebrow"><?php esc_html_e( 'Documentation', 'fx-shortcodes' ); ?></p>
+                <h1 class="fx-doc-title"><?php esc_html_e( 'FX Shortcodes', 'fx-shortcodes' ); ?></h1>
+                <p class="fx-doc-lede"><?php esc_html_e( 'Reference for the nestable [element] shortcode — types, shared attributes, and copy-ready examples.', 'fx-shortcodes' ); ?></p>
+            </div>
+            <div class="fx-doc-header-actions">
+                <a class="button button-primary" href="<?php echo esc_url( admin_url( 'options-general.php?page=fx-shortcodes' ) ); ?>"><?php esc_html_e( 'Bookmark this page', 'fx-shortcodes' ); ?></a>
+                <a class="button" href="https://getbutterfly.com/classicpress-plugins/fx-shortcodes/" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Plugin website', 'fx-shortcodes' ); ?></a>
+            </div>
+        </header>
 
-        <style>
-            .fx-doc { max-width: 980px; }
-            .fx-doc p, .fx-doc li { font-size: 14px; line-height: 1.6; }
-            .fx-doc table { border-collapse: collapse; margin: 1em 0; width: 100%; background: #fff; }
-            .fx-doc th, .fx-doc td { border: 1px solid #dcdcde; padding: 8px 12px; text-align: left; vertical-align: top; font-size: 13px; }
-            .fx-doc th { background: #f6f7f7; }
-            .fx-doc code { background: #f0f0f1; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
-            .fx-doc textarea.fx-doc-code { display: block; background: #1d2327; color: #e8eaed; padding: 14px 16px; border-radius: 4px; font-size: 13px; line-height: 1.55; font-family: monospace; width: 100%; box-sizing: border-box; border: none; resize: none; scrollbar-width: thin; color-scheme: dark; margin-top: 8px; }
-            .fx-doc blockquote { border-left: 4px solid #c3c4c7; margin: 1em 0; padding: 0.4em 1em; background: #f6f7f7; color: #50575e; }
-            .fx-doc .fx-intro { background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 4px; padding: 14px 18px; margin-bottom: 16px; }
-            .fx-doc details.fx-section { border: 1px solid #dcdcde; border-radius: 4px; margin-bottom: 6px; background: #fff; }
-            .fx-doc details.fx-section + details.fx-section { margin-top: 0; }
-            .fx-doc details.fx-section > summary { font-size: 14px; font-weight: 600; padding: 13px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; }
-            .fx-doc details.fx-section > summary::-webkit-details-marker { display: none; }
-            .fx-doc details.fx-section > summary::after { content: '+'; font-size: 20px; font-weight: 300; line-height: 1; color: #787c82; }
-            .fx-doc details.fx-section[open] > summary { border-bottom: 1px solid #dcdcde; }
-            .fx-doc details.fx-section[open] > summary::after { content: '−'; }
-            .fx-doc details.fx-section > summary:hover { background: #f6f7f7; border-radius: 4px; }
-            .fx-doc details.fx-section[open] > summary:hover { border-radius: 4px 4px 0 0; }
-            .fx-doc .fx-section-body { padding: 16px 18px 18px; }
-            .fx-doc .fx-section-body h3 { margin: 1.4em 0 0.4em; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #50575e; }
-            .fx-doc .fx-section-body h3:first-child { margin-top: 0; }
-            .fx-doc .fx-section-body > p:first-child { margin-top: 0; }
-            .fx-doc h2 { font-size: 14px; font-weight: 600; margin: 1.8em 0 0.6em; padding-top: 1em; border-top: 1px solid #dcdcde; }
-            .fx-doc h2:first-of-type { margin-top: 1em; }
-        </style>
+        <div class="fx-doc-layout">
+            <nav class="fx-doc-toc" aria-label="<?php esc_attr_e( 'Documentation sections', 'fx-shortcodes' ); ?>">
+                <p class="fx-doc-toc-title"><?php esc_html_e( 'On this page', 'fx-shortcodes' ); ?></p>
+                <ul>
+                    <li><a href="#fx-intro"><?php esc_html_e( 'Overview', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-types"><?php esc_html_e( 'Types', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-common"><?php esc_html_e( 'Common attributes', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-cover"><?php esc_html_e( 'Cover', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-group"><?php esc_html_e( 'Group', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-columns"><?php esc_html_e( 'Columns', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-details"><?php esc_html_e( 'Details', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-media-text"><?php esc_html_e( 'Media & Text', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-button"><?php esc_html_e( 'Button', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-card"><?php esc_html_e( 'Card', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-sticky"><?php esc_html_e( 'Sticky note', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-spacer"><?php esc_html_e( 'Spacer', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-separator"><?php esc_html_e( 'Separator', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-line"><?php esc_html_e( 'Line', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-nesting"><?php esc_html_e( 'Nesting', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-paired-void"><?php esc_html_e( 'Paired vs void', 'fx-shortcodes' ); ?></a></li>
+                </ul>
+            </nav>
 
-        <div class="fx-intro">
-            <p style="margin:0 0 6px">Everything goes through one tag: <code>[element]</code>. Set the layout with <code>type="…"</code> (for example <code>type="cover"</code>). Paired blocks close with <code>[/element]</code>. Self-closing void blocks use a trailing slash: <code>[element type="spacer" height="3rem" /]</code>.</p>
-            <p style="margin:0">Because the plugin parses <code>[element]</code> itself (innermost-first), <strong>same-name nesting works</strong>: you can put <code>[element type="group"]</code> … <code>[/element]</code> inside another group without WordPress closing on the first <code>[/element]</code>.</p>
-        </div>
+            <div class="fx-doc-content">
+                <div class="fx-doc-intro" id="fx-intro">
+                    <p><?php esc_html_e( 'Everything goes through one tag:', 'fx-shortcodes' ); ?> <code>[element]</code>. <?php esc_html_e( 'Set the layout with', 'fx-shortcodes' ); ?> <code>type="…"</code> <?php esc_html_e( '(for example', 'fx-shortcodes' ); ?> <code>type="cover"</code>). <?php esc_html_e( 'Paired blocks close with', 'fx-shortcodes' ); ?> <code>[/element]</code>. <?php esc_html_e( 'Self-closing void blocks use a trailing slash:', 'fx-shortcodes' ); ?> <code>[element type="spacer" height="3rem" /]</code>.</p>
+                    <p><?php esc_html_e( 'Because the plugin parses', 'fx-shortcodes' ); ?> <code>[element]</code> <?php esc_html_e( 'itself (innermost-first),', 'fx-shortcodes' ); ?> <strong><?php esc_html_e( 'same-name nesting works', 'fx-shortcodes' ); ?></strong>: <?php esc_html_e( 'you can put', 'fx-shortcodes' ); ?> <code>[element type="group"]</code> … <code>[/element]</code> <?php esc_html_e( 'inside another group without WordPress closing on the first', 'fx-shortcodes' ); ?> <code>[/element]</code>.</p>
+                </div>
 
-        <h2 id="fx-types">Types (<code>type</code> attribute)</h2>
-        <table>
+                <h2 class="fx-doc-heading" id="fx-types">Types (<code>type</code> attribute)</h2>
+                <table class="fx-doc-table">
             <thead><tr><th><code>type</code></th><th>Role</th></tr></thead>
             <tbody>
                 <tr><td><code>cover</code></td><td>Hero / cover</td></tr>
@@ -63,6 +70,8 @@ function fx_shortcodes_render_docs_page(): void {
                 <tr><td><code>mediatext</code></td><td>Alias of media-text</td></tr>
                 <tr><td><code>button</code></td><td>Button / link</td></tr>
                 <tr><td><code>card</code></td><td>Card</td></tr>
+                <tr><td><code>sticky</code></td><td>Sticky note / post-it panel</td></tr>
+                <tr><td><code>note</code></td><td>Alias of sticky</td></tr>
                 <tr><td><code>spacer</code></td><td>Spacer (void)</td></tr>
                 <tr><td><code>separator</code></td><td>Rule (void)</td></tr>
                 <tr><td><code>hr</code></td><td>Alias of separator</td></tr>
@@ -71,9 +80,9 @@ function fx_shortcodes_render_docs_page(): void {
             </tbody>
         </table>
 
-        <h2 id="fx-common">Common attributes</h2>
+        <h2 class="fx-doc-heading" id="fx-common">Common attributes</h2>
         <p>These work on (almost) every block type:</p>
-        <table>
+        <table class="fx-doc-table">
             <thead><tr><th>Attribute</th><th>Accepts</th><th>Notes</th></tr></thead>
             <tbody>
                 <tr><td><code>class</code></td><td>space-separated CSS classes</td><td>merged onto the wrapper</td></tr>
@@ -105,7 +114,7 @@ function fx_shortcodes_render_docs_page(): void {
 [element type="button" url="/get-started" style="fill" size="large"]Get started[/element]
 [/element]</textarea>
                 <h3>Cover-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>background</code></td><td>background image URL</td></tr>
@@ -142,7 +151,7 @@ function fx_shortcodes_render_docs_page(): void {
 [element type="card" title="D"]…[/element]
 [/element]</textarea>
                 <h3>Group-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>layout</code></td><td><code>default</code> (block), <code>flex</code>, <code>grid</code></td></tr>
@@ -183,7 +192,7 @@ function fx_shortcodes_render_docs_page(): void {
     [/element]
 [/element]</textarea>
                 <h3>Columns-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>columns</code></td><td>integer; default <code>2</code></td></tr>
@@ -214,7 +223,7 @@ function fx_shortcodes_render_docs_page(): void {
 [/element]</textarea>
                 <p>Use a default group (not <code>layout="flex"</code>) for a vertical list — flex would put them in a row.</p>
                 <h3>Details-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>summary</code></td><td>the always-visible header text</td></tr>
@@ -246,7 +255,7 @@ function fx_shortcodes_render_docs_page(): void {
 <p>The photo on the left now matches the height of this text block, regardless of the image's natural aspect ratio.</p>
 [/element]</textarea>
                 <h3>Media-text-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>media</code></td><td>image URL</td></tr>
@@ -285,7 +294,7 @@ function fx_shortcodes_render_docs_page(): void {
                 <p>The hover darkening percentage is exposed as a CSS variable on <code>.fx-button</code> (<code>--fx-button-darken</code>, default <code>15%</code>). To override globally:</p>
                 <textarea class="fx-doc-code" name="fx-code" rows="6">.fx-button { --fx-button-darken: 25%; }   /* stronger hover darkening */</textarea>
                 <h3>Button-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>url</code></td><td>href; if omitted, renders a <code>&lt;button&gt;</code> instead of <code>&lt;a&gt;</code></td></tr>
@@ -297,7 +306,7 @@ function fx_shortcodes_render_docs_page(): void {
                         <tr><td><code>color</code> (or <code>text</code>)</td><td>sets <code>--fx-button-color</code></td></tr>
                     </tbody>
                 </table>
-                <blockquote><strong>Browser support:</strong> <code>color-mix()</code> requires Chrome 111+, Safari 16.4+, Firefox 113+ (all shipped 2023). On older browsers the hover rule is ignored and the button stays in its base state — still functional, just not animated.</blockquote>
+                <blockquote class="fx-callout"><strong>Browser support:</strong> <code>color-mix()</code> requires Chrome 111+, Safari 16.4+, Firefox 113+ (all shipped 2023). On older browsers the hover rule is ignored and the button stays in its base state — still functional, just not animated.</blockquote>
             </div>
         </details>
 
@@ -326,7 +335,7 @@ function fx_shortcodes_render_docs_page(): void {
     [/element]
 [/element]</textarea>
                 <h3>Card-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>image</code></td><td>image URL</td></tr>
@@ -334,6 +343,33 @@ function fx_shortcodes_render_docs_page(): void {
                         <tr><td><code>title</code></td><td>rendered as <code>&lt;h3&gt;</code></td></tr>
                         <tr><td><code>url</code></td><td>optional — wraps the card in a link</td></tr>
                         <tr><td><code>target</code>, <code>rel</code></td><td>applied to the wrapping link</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+
+        <details class="fx-section" id="fx-sticky">
+            <summary><?php esc_html_e( 'Sticky note', 'fx-shortcodes' ); ?></summary>
+            <div class="fx-section-body">
+                <p><?php esc_html_e( 'Post-it style panel: optional rotation, aspect ratio, and shadow. Also registered as the legacy shortcode', 'fx-shortcodes' ); ?> <code>[sticky]</code> <?php esc_html_e( 'for content imported from FX Builder.', 'fx-shortcodes' ); ?></p>
+                <h3><?php esc_html_e( 'Default look', 'fx-shortcodes' ); ?></h3>
+                <textarea class="fx-doc-code" name="fx-code" rows="5">[element type="sticky"]
+<p>Reminder: replace this text.</p>
+[/element]</textarea>
+                <h3><?php esc_html_e( 'Custom colours, rotation, aspect ratio', 'fx-shortcodes' ); ?></h3>
+                <textarea class="fx-doc-code" name="fx-code" rows="6">[element type="note" background-color="#e8f4fc" color="#1d2327" padding="1.25rem" rotate="-3deg" aspect-ratio="4/3" shadow="1" border-radius="8px"]
+<p>Tilted note with fixed aspect ratio.</p>
+[/element]</textarea>
+                <h3><?php esc_html_e( 'Alias', 'fx-shortcodes' ); ?></h3>
+                <textarea class="fx-doc-code" name="fx-code" rows="3">[element type="note" background-color="#fff3cd"]Same renderer as sticky.[/element]</textarea>
+                <h3><?php esc_html_e( 'Sticky-specific attributes', 'fx-shortcodes' ); ?></h3>
+                <table class="fx-doc-table">
+                    <thead><tr><th><?php esc_html_e( 'Attribute', 'fx-shortcodes' ); ?></th><th><?php esc_html_e( 'Notes', 'fx-shortcodes' ); ?></th></tr></thead>
+                    <tbody>
+                        <tr><td><code>rotate</code></td><td><?php esc_html_e( 'CSS rotate(), e.g.', 'fx-shortcodes' ); ?> <code>-2deg</code></td></tr>
+                        <tr><td><code>aspect-ratio</code></td><td><?php esc_html_e( 'e.g.', 'fx-shortcodes' ); ?> <code>1/1</code>, <code>16/9</code></td></tr>
+                        <tr><td><code>shadow</code></td><td><code>1</code> <?php esc_html_e( '— default sticky shadow; or a raw', 'fx-shortcodes' ); ?> <code>box-shadow</code> <?php esc_html_e( 'value', 'fx-shortcodes' ); ?></td></tr>
+                        <tr><td><code>tag</code></td><td><?php esc_html_e( 'wrapper element (same allow-list as group/cover)', 'fx-shortcodes' ); ?></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -354,7 +390,7 @@ function fx_shortcodes_render_docs_page(): void {
 <span>Right</span>
 [/element]</textarea>
                 <h3>Spacer-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>direction</code></td><td><code>vertical</code> (default) or <code>horizontal</code></td></tr>
@@ -388,7 +424,7 @@ function fx_shortcodes_render_docs_page(): void {
 <p>Continued content.</p>
 [/element]</textarea>
                 <h3>Separator-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>style</code></td><td><code>default</code> (short), <code>wide</code>, <code>dots</code>, <code>dashed</code>, <code>double</code></td></tr>
@@ -423,7 +459,7 @@ function fx_shortcodes_render_docs_page(): void {
 <p>Bottom section.</p>
 [/element]</textarea>
                 <h3>Line-specific attributes</h3>
-                <table>
+                <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
                         <tr><td><code>style</code></td><td><code>striped</code> (default), <code>dotted</code>, <code>shade</code></td></tr>
@@ -438,7 +474,7 @@ function fx_shortcodes_render_docs_page(): void {
             </div>
         </details>
 
-        <h2 id="fx-nesting">Nesting</h2>
+        <h2 class="fx-doc-heading" id="fx-nesting">Nesting</h2>
         <p>Different <code>type</code> values nest arbitrarily (<code>[element type="group"]</code> containing <code>[element type="columns"]</code> …). Because parsing is innermost-first, <strong><code>[element]</code> inside <code>[element]</code></strong> is fully supported.</p>
         <textarea class="fx-doc-code" name="fx-code" rows="6">[element type="cover" height="80vh" width="full" background="/img/hero.jpg" overlay="#000" overlay-opacity="0.5" text="#fff" align="center" vertical-align="center"]
     [element type="group" max-width="900px"]
@@ -457,15 +493,18 @@ function fx_shortcodes_render_docs_page(): void {
     [/element]
 [/element]</textarea>
 
-        <h2 id="fx-paired-void">Paired vs void tags</h2>
-        <table>
+        <h2 class="fx-doc-heading" id="fx-paired-void">Paired vs void tags</h2>
+        <table class="fx-doc-table">
             <thead><tr><th>Form</th><th>Use for</th></tr></thead>
             <tbody>
-                <tr><td><code>[element type="cover"]…[/element]</code> (paired — swap <code>type</code> per layout)</td><td>cover, group, section, columns, column, details, accordion, media-text, mediatext, button, card</td></tr>
+                <tr><td><code>[element type="cover"]…[/element]</code> (paired — swap <code>type</code> per layout)</td><td>cover, group, section, columns, column, details, accordion, media-text, mediatext, button, card, sticky, note</td></tr>
                 <tr><td><code>[element type="spacer" height="3rem" /]</code> / <code>[element type="separator" /]</code> / <code>[element type="line" /]</code> …</td><td>void blocks — single bracket pair, no closing tag</td></tr>
             </tbody>
         </table>
         <p>Self-closing void tags (<code>… /]</code>) are recommended; an empty paired <code>[/element]</code> after a void type is unnecessary.</p>
-    </div>
+
+            </div><!-- .fx-doc-content -->
+        </div><!-- .fx-doc-layout -->
+    </div><!-- .wrap.fx-doc -->
     <?php
 }
