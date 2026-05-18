@@ -58,6 +58,7 @@ require_once $fx_includes_dir . 'spacer.php';
 require_once $fx_includes_dir . 'separator.php';
 require_once $fx_includes_dir . 'line.php';
 require_once $fx_includes_dir . 'sticky.php';
+require_once $fx_includes_dir . 'map-embed.php';
 require_once $fx_includes_dir . 'settings.php';
 
 unset( $fx_includes_dir );

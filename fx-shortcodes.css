@@ -14,13 +14,15 @@
 .fx-card p:empty,
 .fx-media-text p:empty,
 .fx-details p:empty,
+.fx-google-map p:empty,
 .fx-cover p:has(> a:empty:only-child),
 .fx-group p:has(> a:empty:only-child),
 .fx-columns p:has(> a:empty:only-child),
 .fx-column p:has(> a:empty:only-child),
 .fx-card p:has(> a:empty:only-child),
 .fx-media-text p:has(> a:empty:only-child),
-.fx-details p:has(> a:empty:only-child) {
+.fx-details p:has(> a:empty:only-child),
+.fx-google-map p:has(> a:empty:only-child) {
     display: none;
 }
 
@@ -546,6 +548,24 @@
 
 .fx-sticky--shadow {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------------------------------------------------------
+ * Google Maps embed (standalone shortcode)
+ * ------------------------------------------------------------------------- */
+
+.fx-google-map {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.fx-google-map .fx-google-map__frame {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
 }
 
 /* -------------------------------------------------------------------------

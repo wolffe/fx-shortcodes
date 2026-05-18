@@ -38,6 +38,8 @@ Because the plugin parses `[element]` itself (innermost-first, before WordPress'
 * `separator` (alias `hr`) — thematic break with style variants (void)
 * `line` (alias `colored-line`) — decorative striped / dotted / shaded line (void)
 
+Additionally, two standalone tags are registered outside `[element]` (see **Settings → FX Shortcodes**): `[sticky]` (legacy import parity) and `[fx_google_map]` for a responsive Google Maps iframe from Google's embed URL.
+
 All types share a common attribute set: `width` (`full` / `wide` / CSS length), `align`, `vertical-align`, `background-color`, `padding`, `margin`, `gap`, `border-radius`, `shadow`, and more — plus a few type-specific ones.
 
 The full reference, with code samples for every shortcode, lives in the admin under **Settings → FX Shortcodes**.

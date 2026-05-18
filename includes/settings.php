@@ -44,6 +44,7 @@ function fx_shortcodes_render_docs_page(): void {
                     <li><a href="#fx-spacer"><?php esc_html_e( 'Spacer', 'fx-shortcodes' ); ?></a></li>
                     <li><a href="#fx-separator"><?php esc_html_e( 'Separator', 'fx-shortcodes' ); ?></a></li>
                     <li><a href="#fx-line"><?php esc_html_e( 'Line', 'fx-shortcodes' ); ?></a></li>
+                    <li><a href="#fx-google-map"><?php esc_html_e( 'Google map embed', 'fx-shortcodes' ); ?></a></li>
                     <li><a href="#fx-nesting"><?php esc_html_e( 'Nesting', 'fx-shortcodes' ); ?></a></li>
                     <li><a href="#fx-paired-void"><?php esc_html_e( 'Paired vs void', 'fx-shortcodes' ); ?></a></li>
                 </ul>
@@ -52,6 +53,7 @@ function fx_shortcodes_render_docs_page(): void {
             <div class="fx-doc-content">
                 <div class="fx-doc-intro" id="fx-intro">
                     <p><?php esc_html_e( 'Everything goes through one tag:', 'fx-shortcodes' ); ?> <code>[element]</code>. <?php esc_html_e( 'Set the layout with', 'fx-shortcodes' ); ?> <code>type="…"</code> <?php esc_html_e( '(for example', 'fx-shortcodes' ); ?> <code>type="cover"</code>). <?php esc_html_e( 'Paired blocks close with', 'fx-shortcodes' ); ?> <code>[/element]</code>. <?php esc_html_e( 'Self-closing void blocks use a trailing slash:', 'fx-shortcodes' ); ?> <code>[element type="spacer" height="3rem" /]</code>.</p>
+                    <p><?php esc_html_e( 'Two shortcuts sit outside', 'fx-shortcodes' ); ?> <code>[element]</code><?php esc_html_e( ':', 'fx-shortcodes' ); ?> <code>[sticky]</code> <?php esc_html_e( '(legacy import compatibility) and a responsive Google Maps iframe via', 'fx-shortcodes' ); ?> <code>[fx_google_map]</code>.</p>
                     <p><?php esc_html_e( 'Because the plugin parses', 'fx-shortcodes' ); ?> <code>[element]</code> <?php esc_html_e( 'itself (innermost-first),', 'fx-shortcodes' ); ?> <strong><?php esc_html_e( 'same-name nesting works', 'fx-shortcodes' ); ?></strong>: <?php esc_html_e( 'you can put', 'fx-shortcodes' ); ?> <code>[element type="group"]</code> … <code>[/element]</code> <?php esc_html_e( 'inside another group without WordPress closing on the first', 'fx-shortcodes' ); ?> <code>[/element]</code>.</p>
                 </div>
 
@@ -469,6 +471,24 @@ function fx_shortcodes_render_docs_page(): void {
                         <tr><td><code>background-color</code></td><td>bar background; default <code>transparent</code> (variant paints over it)</td></tr>
                         <tr><td><code>color</code> (or <code>text</code>)</td><td>drives <code>currentColor</code> for <code>striped</code> and <code>dotted</code>; default <code>#000000</code>. The <code>shade</code> variant ignores this.</td></tr>
                         <tr><td><code>align</code></td><td><code>left</code> <code>center</code> (default) <code>right</code> — sets the bar's horizontal position via <code>justify-content</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+
+        <details class="fx-section" id="fx-google-map">
+            <summary><?php esc_html_e( 'Google map embed', 'fx-shortcodes' ); ?></summary>
+            <div class="fx-section-body">
+                <p><?php esc_html_e( 'Embeds Google\'s interactive map iframe. Only URLs whose host is Google and whose path includes', 'fx-shortcodes' ); ?> <code>/maps/embed</code> <?php esc_html_e( '(the value from Maps → Share → Embed a map → copy the iframe', 'fx-shortcodes' ); ?> <code>src</code>) <?php esc_html_e( 'are accepted; anything else renders nothing.', 'fx-shortcodes' ); ?></p>
+                <p><?php esc_html_e( 'Use', 'fx-shortcodes' ); ?> <code>[fx_google_map]</code>.</p>
+                <h3><?php esc_html_e( 'Example', 'fx-shortcodes' ); ?></h3>
+                <textarea class="fx-doc-code" name="fx-code" rows="4">[fx_google_map url="https://www.google.com/maps/embed?pb=PASTE_YOUR_QUERY_STRING_HERE" height="450"]</textarea>
+                <h3><?php esc_html_e( 'Attributes', 'fx-shortcodes' ); ?></h3>
+                <table class="fx-doc-table">
+                    <thead><tr><th><?php esc_html_e( 'Attribute', 'fx-shortcodes' ); ?></th><th><?php esc_html_e( 'Notes', 'fx-shortcodes' ); ?></th></tr></thead>
+                    <tbody>
+                        <tr><td><code>url</code></td><td><?php esc_html_e( 'Required. Full https Google Maps embed URL.', 'fx-shortcodes' ); ?></td></tr>
+                        <tr><td><code>height</code></td><td><?php esc_html_e( 'Pixel height of the iframe (integer). Default', 'fx-shortcodes' ); ?> <code>450</code>.</td></tr>
                     </tbody>
                 </table>
             </div>
