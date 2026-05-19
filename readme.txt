@@ -1,10 +1,10 @@
 === FX Shortcodes ===
 Contributors: butterflymedia
-Tags: classicpress, shortcodes, blocks, layout, gutenberg
+Tags: classicpress, shortcodes, blocks, layout, columns
 Requires at least: 2.5
 Requires PHP: 8.0
 Tested up to: 2.7.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,7 +26,7 @@ Because the plugin parses `[element]` itself (innermost-first, before WordPress'
 
 = Available types =
 
-* `cover` — full-bleed hero with background image, overlay, parallax
+* `cover` — full-bleed hero with background image (`<img>`), overlay
 * `group` (alias `section`) — generic container with optional flex / grid layout
 * `columns` + `column` — equal or asymmetric column rows
 * `details` (alias `accordion`) — native `<details>` element
@@ -49,7 +49,6 @@ The full reference, with code samples for every shortcode, lives in the admin un
 1. Upload the `fx-shortcodes` folder to `/wp-content/plugins/`.
 2. Activate the plugin from the Plugins screen.
 3. Open **Settings → FX Shortcodes** for the full reference and code samples.
-4. **docs/SHORTCODE-DEMOS.txt** is an HTML fragment: rendered samples (real shortcodes) plus textarea blocks with brackets as `&#91;`/`&#93;` so they copy cleanly without executing inside the field. If you edit a textarea sample, decode those entities back to `[` `]` inside the fenced `<!-- fx-demo-live-* -->` block above it so previews stay aligned.
 
 == Frequently Asked Questions ==
 
@@ -66,6 +65,11 @@ Yes. The plugin uses its own innermost-first parser, so an `[element]` inside an
 It works on WordPress too — the codebase has no ClassicPress-only dependencies — but the target audience is ClassicPress users who use the Classic editor and want layout primitives without blocks.
 
 == Changelog ==
+
+= 1.0.3 =
+* Cover `background` renders as an `<img>` (LCP-friendly) instead of CSS `background-image`.
+* Remove cover `parallax` attribute (no longer supported).
+* Remove bundled `docs/` demo fragment; use **Settings → FX Shortcodes** for reference.
 
 = 1.0.2 =
 * Add `[fx_google_map]` Google Map embed shortcode.

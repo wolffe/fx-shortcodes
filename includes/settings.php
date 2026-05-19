@@ -109,7 +109,7 @@ function fx_shortcodes_render_docs_page(): void {
         <details class="fx-section" id="fx-cover">
             <summary>Cover</summary>
             <div class="fx-section-body">
-                <p>Full-bleed hero with optional background image, color overlay, and parallax.</p>
+                <p>Full-bleed hero with optional background image (<code>&lt;img&gt;</code>), color overlay.</p>
                 <textarea class="fx-doc-code" name="fx-code" rows="6">[element type="cover" height="100vh" width="full" background="/wp-content/uploads/hero.jpg" overlay="#000000" overlay-opacity="0.4" text="#ffffff" align="center" vertical-align="center"]
 <h1>Welcome</h1>
 <p>A short tagline goes here.</p>
@@ -119,11 +119,10 @@ function fx_shortcodes_render_docs_page(): void {
                 <table class="fx-doc-table">
                     <thead><tr><th>Attribute</th><th>Notes</th></tr></thead>
                     <tbody>
-                        <tr><td><code>background</code></td><td>background image URL</td></tr>
+                        <tr><td><code>background</code></td><td>hero image URL (rendered as <code>&lt;img&gt;</code> with <code>fetchpriority="high"</code>)</td></tr>
                         <tr><td><code>overlay</code></td><td>overlay color (rendered above image)</td></tr>
                         <tr><td><code>overlay-opacity</code></td><td><code>0</code>–<code>1</code>, default <code>0.5</code></td></tr>
-                        <tr><td><code>parallax</code></td><td><code>1</code> / <code>0</code> — fixes background-attachment</td></tr>
-                        <tr><td><code>focal</code></td><td>CSS background-position, e.g. <code>30% 70%</code></td></tr>
+                        <tr><td><code>focal</code></td><td>CSS <code>object-position</code> on the image, e.g. <code>30% 70%</code></td></tr>
                         <tr><td><code>height</code> / <code>min-height</code></td><td>becomes <code>min-height</code> of the cover</td></tr>
                     </tbody>
                 </table>

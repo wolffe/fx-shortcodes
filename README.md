@@ -35,7 +35,7 @@ Because the plugin parses `[element]` itself (innermost-first, before WordPress'
 
 | Type                             | Role                                                                    |
 | -------------------------------- | ----------------------------------------------------------------------- |
-| `cover`                          | Full-bleed hero with background image, overlay, parallax                |
+| `cover`                          | Full-bleed hero with background image (`<img>`), overlay                |
 | `group` (alias `section`)        | Generic container with optional flex / grid layout                      |
 | `columns` + `column`             | Equal or asymmetric column rows                                         |
 | `details` (alias `accordion`)    | Native `<details>` element                                              |

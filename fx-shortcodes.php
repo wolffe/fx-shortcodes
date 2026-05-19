@@ -3,7 +3,7 @@
  * Plugin Name: FX Shortcodes
  * Plugin URI: https://getbutterfly.com/classicpress-plugins/fx-shortcodes/
  * Description: Block-style layout shortcodes (cover, group, columns, details, media-text, button, card, sticky, and more) for ClassicPress. One shortcode, many types, fully nestable.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires PHP: 8.0
  * Requires CP: 2.5
  * Author: Ciprian Popescu
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-const FX_SHORTCODES_VERSION = '1.0.2';
+const FX_SHORTCODES_VERSION = '1.0.3';
 
 /* -------------------------------------------------------------------------
  * Includes
@@ -212,8 +212,7 @@ function fx_render_element( array $atts, string $content ): string {
         // cover
         'overlay'          => '',
         'overlay-opacity'  => '0.5',
-        'parallax'         => '',
-        'focal'            => '',     // "50% 50%"
+        'focal'            => '',     // "50% 50%" -> object-position on cover img
 
     // columns
         'columns'          => '2',

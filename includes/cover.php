@@ -1,7 +1,7 @@
 <?php
 /**
- * Cover renderer — full-bleed hero with optional background image,
- * color overlay, and parallax.
+ * Cover renderer — full-bleed hero with optional background image
+ * and color overlay.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,6 @@ function fx_render_cover( array $a, string $content ): string {
             fx_width_class( $a['width'] ),
             $a['align'] !== '' ? 'fx-align-' . $a['align'] : '',
             $a['vertical-align'] !== '' ? 'fx-valign-' . $a['vertical-align'] : '',
-            $a['parallax'] === '1' ? 'fx-cover--parallax' : '',
             $a['class'],
         ]
     );
@@ -35,15 +34,11 @@ function fx_render_cover( array $a, string $content ): string {
 
     $bg = '';
     if ( $a['background'] !== '' ) {
-        $bg_style = [
-            'background-image'    => 'url(' . esc_url( $a['background'] ) . ')',
-            'background-size'     => 'cover',
-            'background-repeat'   => 'no-repeat',
-            'background-position' => $a['focal'] !== '' ? $a['focal'] : 'center center',
-        ];
-        $bg       = sprintf(
-            '<div class="fx-cover__bg" style="%s" aria-hidden="true"></div>',
-            fx_style( $bg_style )
+        $img_style = $a['focal'] !== '' ? fx_style( [ 'object-position' => $a['focal'] ] ) : '';
+        $bg        = sprintf(
+            '<div class="fx-cover__bg" aria-hidden="true"><img src="%1$s" alt="" fetchpriority="high" loading="eager" decoding="async"%2$s></div>',
+            esc_url( $a['background'] ),
+            $img_style !== '' ? ' style="' . $img_style . '"' : ''
         );
     }
 
