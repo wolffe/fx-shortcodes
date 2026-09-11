@@ -43,6 +43,8 @@ jobs:
                     ' phpcs.xml
 
                   sed -i '/MY_DOMAIN/ s//fx-shortcodes/' phpcs.xml
+                  sed -i '/<property name="check_translator_comments" value="false"\/>/d' phpcs.xml
+                  sed -i '/<property name="use_default_whitelist" value="false"\/>/d' phpcs.xml
 
                   # Add PHP 8 support
                   sed -i 's|</ruleset>|    <config name="testVersion" value="8.0-"/>\n</ruleset>|' phpcs.xml
