@@ -34,25 +34,8 @@ jobs:
 
                   echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
 
-            - name: Get CPCS ruleset
-              run: |
-                  wget -O phpcs.xml https://raw.githubusercontent.com/ClassicPress/ClassicPress-Coding-Standards/main/phpcs.xml
-
-                  sed -i '/^\t<!-- start config -->.*/a\
-                    <file>.</file>
-                    ' phpcs.xml
-
-                  sed -i '/MY_DOMAIN/ s//fx-shortcodes/' phpcs.xml
-                  sed -i '/<property name="check_translator_comments" value="false"\/>/d' phpcs.xml
-                  sed -i '/<property name="use_default_whitelist" value="false"\/>/d' phpcs.xml
-
-                  # Add PHP 8 support
-                  sed -i 's|</ruleset>|    <config name="testVersion" value="8.0-"/>\n</ruleset>|' phpcs.xml
-
-                  cp phpcs.xml phpcs.xml.dist
-
             - name: Verify install
               run: phpcs -i
 
             - name: Run PHPCS
-              run: phpcs --standard=phpcs.xml.dist --report-full --report-summary
+              run: phpcs --standard=phpcs.xml --report-full --report-summary
