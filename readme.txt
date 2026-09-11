@@ -1,10 +1,11 @@
 === FX Shortcodes ===
 Contributors: butterflymedia
+Donate link: https://buymeacoffee.com/wolffe
 Tags: classicpress, shortcodes, blocks, layout, columns
 Requires at least: 2.5
 Requires PHP: 8.0
-Tested up to: 2.7.0
-Stable tag: 1.0.3
+Tested up to: 2.7.2
+Stable tag: 1.0.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -15,6 +16,8 @@ Block-style page layouts for ClassicPress, delivered as shortcodes. Replaces Gut
 ClassicPress dropped the Gutenberg block editor in favour of the Classic editor — but that leaves a gap: the layout primitives that came with blocks (cover, columns, media + text, buttons, accordions, decorative lines, and so on) disappear with it. Themes still know how to style `alignfull` / `alignwide`, but there's no easy way to author those layouts in a Classic post.
 
 FX Shortcodes fills that gap. Every layout block you'd reach for in Gutenberg is available as a shortcode, with the same visual result and the same alignment classes — but authored as plain `[element]` tags inside the Classic editor.
+
+Find more tools at [ClassicPress Plugins](https://getbutterfly.com/classicpress-plugins/).
 
 No JavaScript, no block editor, no React. Just one shortcode and a stylesheet.
 
@@ -65,6 +68,10 @@ Yes. The plugin uses its own innermost-first parser, so an `[element]` inside an
 It works on WordPress too — the codebase has no ClassicPress-only dependencies — but the target audience is ClassicPress users who use the Classic editor and want layout primitives without blocks.
 
 == Changelog ==
+
+= 1.0.4 =
+* Confirm compatibility with ClassicPress 2.7.2.
+* Add links to ClassicPress Plugins and the donation page.
 
 = 1.0.3 =
 * Cover `background` renders as an `<img>` (LCP-friendly) instead of CSS `background-image`.
