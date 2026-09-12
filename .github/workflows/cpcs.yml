@@ -12,23 +12,21 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: CPCS get rules
-              run: |
-                  wget -O phpcs.xml https://raw.githubusercontent.com/ClassicPress/ClassicPress-Coding-Standards/main/phpcs.xml
-                  sed -i '/^\t<!-- start config -->.*/a\
-                    <file>.</file>
-                    ' phpcs.xml
-                  sed -i '/MY_DOMAIN/ s//fx-shortcodes/' phpcs.xml
-                  cp phpcs.xml phpcs.xml.dist
-            - name: CPCS checks
-              uses: 10up/wpcs-action@v2.1.0
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
               with:
-                  use_local_config: "true"
-                  enable_warnings: "true"
-                  extra_args: "--report-json=./phpcs.json"
+                  php-version: "8.3"
+                  tools: composer
+            - name: Install PHPCS and WPCS
+              run: |
+                  composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+                  composer global require squizlabs/php_codesniffer:^3.13 dealerdirect/phpcodesniffer-composer-installer wp-coding-standards/wpcs:^3.4.1
+                  echo "$(composer global config bin-dir --absolute)" >> "$GITHUB_PATH"
+            - name: CPCS checks
+              run: phpcs --standard=phpcs.xml --report-json=./phpcs.json
             - name: Update summary
+              if: ${{ always() && hashFiles('phpcs.json') != '' }}
               run: |
                   npm i -g github:10up/phpcs-json-to-md
                   phpcs-json-to-md --path ./phpcs.json --output ./phpcs.md
                   cat phpcs.md >> $GITHUB_STEP_SUMMARY
-              if: always()
