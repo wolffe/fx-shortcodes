@@ -5,7 +5,7 @@ Tags: classicpress, shortcodes, blocks, layout, columns
 Requires at least: 2.5
 Requires PHP: 8.0
 Tested up to: 2.7.2
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,6 +68,9 @@ Yes. The plugin uses its own innermost-first parser, so an `[element]` inside an
 It works on WordPress too — the codebase has no ClassicPress-only dependencies — but the target audience is ClassicPress users who use the Classic editor and want layout primitives without blocks.
 
 == Changelog ==
+
+= 1.0.5 =
+* Update documentation and CSS coding-standard formatting.
 
 = 1.0.4 =
 * Confirm compatibility with ClassicPress 2.7.2.

@@ -11,6 +11,8 @@ ClassicPress dropped the Gutenberg block editor in favour of the Classic editor.
 
 FX Shortcodes fills that gap. Every layout block you'd reach for in Gutenberg is available as a shortcode, with the same visual result and the same alignment classes — but authored as plain `[element]` tags inside the Classic editor.
 
+Find more tools at [ClassicPress Plugins](https://getbutterfly.com/classicpress-plugins/).
+
 No JavaScript, no block editor, no React. Just one shortcode and a stylesheet.
 
 ## How it works
