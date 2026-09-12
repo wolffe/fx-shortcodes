@@ -1,12 +1,9 @@
-/* =========================================================================
-   FX Shortcodes — block-style layout primitives
-   ========================================================================= */
+/* FX Shortcodes block-style layout primitives */
 
-/* ---- wpautop cleanup --------------------------------------------------
- * wpautop runs after this plugin's parser and frequently wraps stray
- * whitespace between rendered block siblings in <p></p>, and splits an
- * <a> that contains block-level children into a leading link plus a
- * trailing empty <p><a></a></p>. Hide both inside any FX container. */
+/* wpautop cleanup */
+/* wpautop runs after this plugin's parser and frequently wraps stray whitespace between rendered block siblings. */
+/* It can split a link with block-level children into a leading link and trailing empty paragraph. */
+/* Hide both inside any FX container. */
 .fx-cover p:empty,
 .fx-group p:empty,
 .fx-columns p:empty,
@@ -26,7 +23,7 @@
     display: none;
 }
 
-/* ---- Width / alignment helpers (mirror WP core) ------------------------ */
+/* Width and alignment helpers mirror WordPress core. */
 .fx-cover.alignfull,
 .fx-group.alignfull,
 .fx-columns.alignfull,
@@ -89,7 +86,7 @@
     align-self: flex-end;
 }
 
-/* ---- Cover ------------------------------------------------------------- */
+/* Cover */
 .fx-cover {
     position: relative;
     display: flex;
@@ -138,7 +135,7 @@
     align-items: flex-end;
 }
 
-/* ---- Group ------------------------------------------------------------- */
+/* Group */
 .fx-group {
     box-sizing: border-box;
 }
@@ -155,7 +152,7 @@
     gap: 1rem;
 }
 
-/* ---- Columns ----------------------------------------------------------- */
+/* Columns */
 .fx-columns {
     display: grid;
     grid-template-columns: repeat(var(--fx-columns, 2), minmax(0, 1fr));
@@ -174,7 +171,7 @@
     }
 }
 
-/* ---- Details / Accordion ---------------------------------------------- */
+/* Details and accordion */
 .fx-details {
     border: 1px solid currentColor;
     border-color: rgba(0, 0, 0, 0.12);
@@ -213,18 +210,24 @@
     padding: 0 1rem 1rem;
 }
 
-/* ---- Media & Text ----------------------------------------------------- */
+/* Media and text */
 .fx-media-text {
     display: grid;
     /* 1fr + 1fr (default) splits space after gap; 50% + 1fr was uneven in practice. */
-    grid-template-columns: minmax(0, var(--fx-media-width, 1fr)) minmax(0, var(--fx-text-width, 1fr));
+    grid-template-columns: minmax(0, var(--fx-media-width, 1fr)) minmax(
+            0,
+            var(--fx-text-width, 1fr)
+        );
     gap: 2rem;
     align-items: center;
     box-sizing: border-box;
 }
 
 .fx-media-text--right {
-    grid-template-columns: minmax(0, var(--fx-text-width, 1fr)) minmax(0, var(--fx-media-width, 1fr));
+    grid-template-columns: minmax(0, var(--fx-text-width, 1fr)) minmax(
+            0,
+            var(--fx-media-width, 1fr)
+        );
 }
 
 .fx-media-text__media {
@@ -242,11 +245,10 @@
     min-width: 0;
 }
 
-/* Crop image to fill: image stretches to match the text column height,
-   like WordPress' "Crop image to fill" toggle on the Media & Text block.
-   The wrapper is position: relative + min-height so the absolutely-positioned
-   <img> has a definite box to fill — `height: 100%` on the img alone is
-   unreliable when the grid track is sized by the image's intrinsic height. */
+/* Crop image to fill: image stretches to match the text column height. */
+/* This matches WordPress' "Crop image to fill" toggle on the Media and Text block. */
+/* The wrapper is position: relative with min-height, so the image has a definite box to fill. */
+/* Height: 100% on the image alone is unreliable when the grid track uses the image's intrinsic height. */
 .fx-media-text--crop > .fx-media-text__media {
     align-self: stretch;
     position: relative;
@@ -270,14 +272,12 @@
     }
 }
 
-/* ---- Button -----------------------------------------------------------
- * Color is driven by two CSS custom properties:
- *   --fx-button-bg     base background / accent color
- *   --fx-button-color  text color shown on the filled state
- * Hover is computed with color-mix() in oklch — works for any custom color
- * the user sets via the shortcode's background-color / color attributes.
- * Adjust the strength of the hover darkening with --fx-button-darken.
- * ----------------------------------------------------------------------- */
+/* Button */
+/* Color is driven by two CSS custom properties. */
+/* --fx-button-bg: base background and accent color. */
+/* --fx-button-color: text color shown on the filled state. */
+/* Hover is computed with color-mix() in oklch for any custom shortcode color. */
+/* Adjust hover darkening with --fx-button-darken. */
 .fx-button {
     --fx-button-bg: #2271b1;
     --fx-button-color: #ffffff;
@@ -358,7 +358,7 @@
     font-size: 1.125rem;
 }
 
-/* ---- Card ------------------------------------------------------------- */
+/* Card */
 .fx-card {
     display: flex;
     flex-direction: column;
@@ -394,7 +394,7 @@
     flex: 1;
 }
 
-/* ---- Spacer ----------------------------------------------------------- */
+/* Spacer */
 .fx-spacer {
     display: block;
     pointer-events: none;
@@ -405,7 +405,7 @@
     vertical-align: middle;
 }
 
-/* ---- Separator -------------------------------------------------------- */
+/* Separator */
 .fx-separator {
     border: 0;
     border-top: 1px solid currentColor;
@@ -455,12 +455,11 @@
     background-position: center;
 }
 
-/* ---- Decorative line ( type="line" ) ---------------------------------
- * Three-element structure:
- *   .fx-line                 outer, holds variant modifier
- *   .fx-line__layout         inline padding + flex container for alignment
- *   .fx-line__inner          the painted line; currentColor drives variants
- * ---------------------------------------------------------------------- */
+/* Decorative line (type="line") */
+/* Three-element structure. */
+/* .fx-line: outer element that holds the variant modifier. */
+/* .fx-line__layout: inline padding and flex container for alignment. */
+/* .fx-line__inner: painted line; currentColor drives variants. */
 .fx-line {
     display: block;
     box-sizing: border-box;
@@ -536,9 +535,7 @@
     );
 }
 
-/* -------------------------------------------------------------------------
- * Sticky note
- * ------------------------------------------------------------------------- */
+/* Sticky note */
 
 .fx-sticky {
     position: relative;
@@ -554,9 +551,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* -------------------------------------------------------------------------
- * Google Maps embed (standalone shortcode)
- * ------------------------------------------------------------------------- */
+/* Google Maps embed (standalone shortcode) */
 
 .fx-google-map {
     position: relative;
